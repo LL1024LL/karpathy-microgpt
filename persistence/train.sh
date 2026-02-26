@@ -18,4 +18,5 @@ fi
 
 # Train the model and save weights to model.json
 # Pass through any extra args (e.g. --steps 1000 --output my_model.json)
-uv run "$SCRIPT_DIR/train.py" "$@"
+ulimit -v 5242880
+uv run --python pypy "$SCRIPT_DIR/train.py" "$@"

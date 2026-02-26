@@ -16,5 +16,6 @@ if ! command -v uv &>/dev/null; then
     echo "uv installed successfully: $(uv --version)"
 fi
 
-# Run the training script with uv
-uv run gpt.py
+# Run the training script with uv (PyPy for speed, 5GB virtual memory limit for safety)
+ulimit -v 5242880
+uv run --python pypy gpt.py
